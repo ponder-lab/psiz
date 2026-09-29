@@ -1,0 +1,8 @@
+tensorflow-probability==0.17.0
+pandas==2.3.3
+matplotlib==3.10.9
+pillow==12.3.0
+numexpr==2.14.1
+imageio==2.37.0
+setuptools_scm[toml]==5.0.2
+wheel==0.43.0
