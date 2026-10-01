@@ -96,6 +96,7 @@ class HeavyTailedSimilarity(tf.keras.layers.Layer):
                 constraint=pk_constraints.GreaterEqualThan(min_value=0.0)
             )
 
+    @tf.function(input_signature=[tf.TensorSpec(shape=(2, 2), dtype=tf.float32)])
     def call(self, inputs):
         """Call.
 

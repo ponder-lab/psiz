@@ -24,6 +24,7 @@ Functions:
 import tensorflow as tf
 
 
+@tf.function
 def ig_categorical(y_pred):
     """Return expected information gain of categorical outcome trials.
 

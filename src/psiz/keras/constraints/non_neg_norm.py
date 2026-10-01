@@ -48,6 +48,7 @@ class NonNegNorm(constraints.Constraint):
         self.p = p
         self.axis = axis
 
+    @tf.function(input_signature=[tf.TensorSpec(shape=(2, 3), dtype=tf.float32)])
     def __call__(self, w):
         """Call."""
         # Enforce nonnegative.

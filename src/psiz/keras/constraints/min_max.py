@@ -40,6 +40,7 @@ class MinMax(constraints.Constraint):
         self.min_value = min_value
         self.max_value = max_value
 
+    @tf.function(input_signature=[tf.TensorSpec(shape=(2, 2), dtype=tf.float32)])
     def __call__(self, w):
         """Call."""
         w = w - self.min_value

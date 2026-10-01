@@ -185,6 +185,7 @@ class GateMulti(tf.keras.layers.Layer):
         )
         return x, lost_shape
 
+    @tf.function
     def _post_combine(self, x, lost_shape):
         """Handle post-combine operations."""
         batch_size = tf.expand_dims(tf.shape(x)[0], axis=0)

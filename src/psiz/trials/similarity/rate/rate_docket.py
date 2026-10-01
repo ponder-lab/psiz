@@ -74,6 +74,7 @@ class RateDocket(RateTrials):
         # Determine unique display configurations.
         self._set_configuration_data(self.n_present)
 
+    @tf.function(input_signature=[tf.TensorSpec(shape=(None,), dtype=tf.int64)])
     def subset(self, index):
         """Return subset of trials as a new RateDocket object.
 

@@ -42,6 +42,7 @@ class IncrementPairs(tf.keras.layers.Layer):
         super(IncrementPairs, self).__init__(**kwargs)
         self.v = tf.constant(v)
 
+    @tf.function
     def call(self, inputs):
         """Call."""
         return inputs[0] + inputs[1] + self.v

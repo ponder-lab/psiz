@@ -36,6 +36,7 @@ class AttentionEntropy(tf.keras.regularizers.Regularizer):
         """
         self.rate = rate
 
+    @tf.function(input_signature=[tf.TensorSpec(shape=(3, 1), dtype=tf.float32)])
     def __call__(self, w):
         """Call."""
         n_dim = tf.cast(tf.shape(w)[0], tf.keras.backend.floatx())
