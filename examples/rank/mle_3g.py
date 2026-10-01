@@ -48,6 +48,9 @@ import tensorflow as tf
 
 import psiz
 
+from scripts.utils import write_csv
+import timeit
+
 # Uncomment the following line to force eager execution.
 # tf.config.run_functions_eagerly(True)
 
@@ -97,11 +100,8 @@ def main():
     #     batch_size, drop_remainder=False
     # )
 
-    # Use early stopping.
-    early_stop = psiz.keras.callbacks.EarlyStoppingRe(
-        'val_cce', patience=15, mode='min', restore_best_weights=True
-    )
-    callbacks = [early_stop]
+    # No early stopping, so that every run trains the same number of epochs.
+    callbacks = []
 
     compile_kwargs = {
         'loss': tf.keras.losses.CategoricalCrossentropy(),
@@ -111,6 +111,9 @@ def main():
         ]
     }
 
+    start_time = timeit.default_timer()
+    skipped_time = 0
+
     model_inferred = build_model(n_stimuli, n_dim, n_group)
 
     # Infer embedding with restarts.
@@ -118,11 +121,19 @@ def main():
         model_inferred, compile_kwargs=compile_kwargs, monitor='val_loss',
         n_restart=n_restart
     )
-    restarter.fit(
+    tracker = restarter.fit(
         x=ds_obs_train, validation_data=ds_obs_val, epochs=epochs,
         callbacks=callbacks, verbose=0
     )
     model_inferred = restarter.model
+
+    time = timeit.default_timer() - start_time - skipped_time
+
+    # Without early stopping every restart trains `epochs` epochs; the loss
+    # is the training loss of the restart kept.
+    write_csv(
+        __file__, epochs, loss=float(tracker.record['loss'][0]), time=time
+    )
 
     # Compare the inferred model with ground truth by comparing the
     # similarity matrices implied by each model.
