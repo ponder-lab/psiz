@@ -168,6 +168,7 @@ class SparseDispatcher():
         return tf.split(inputs, self._part_sizes_tensor, 0)
 
     # @add_name_scope()
+    @tf.function
     def dispatch_multi(self, inputs):
         """Create one input Tensor for each expert.
 

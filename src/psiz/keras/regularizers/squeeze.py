@@ -43,6 +43,7 @@ class Squeeze(tf.keras.regularizers.Regularizer):
         """
         self.rate = rate
 
+    @tf.function
     def __call__(self, z):
         """Call.
 

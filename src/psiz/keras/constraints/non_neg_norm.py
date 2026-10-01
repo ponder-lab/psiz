@@ -48,6 +48,7 @@ class NonNegNorm(constraints.Constraint):
         self.p = p
         self.axis = axis
 
+    @tf.function
     def __call__(self, w):
         """Call."""
         # Enforce nonnegative.

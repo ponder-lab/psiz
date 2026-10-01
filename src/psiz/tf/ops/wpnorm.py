@@ -24,6 +24,7 @@ import tensorflow as tf
 
 
 @tf.custom_gradient
+@tf.function
 def wpnorm(x, w, p):
     """Weighted p-norm.
 

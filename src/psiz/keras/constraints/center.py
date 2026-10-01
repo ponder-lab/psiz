@@ -43,6 +43,7 @@ class Center(constraints.Constraint):
         """
         self.axis = axis
 
+    @tf.function
     def __call__(self, w):
         """Call."""
         return w - tf.reduce_mean(w, axis=self.axis, keepdims=True)

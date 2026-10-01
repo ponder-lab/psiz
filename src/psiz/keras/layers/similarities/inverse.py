@@ -81,6 +81,7 @@ class InverseSimilarity(tf.keras.layers.Layer):
                 )
             )
 
+    @tf.function
     def call(self, inputs):
         """Call.
 

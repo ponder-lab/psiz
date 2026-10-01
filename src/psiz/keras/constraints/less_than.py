@@ -38,6 +38,7 @@ class LessThan(constraints.Constraint):
         """
         self.max_value = max_value
 
+    @tf.function
     def __call__(self, w):
         """Call."""
         w = w - self.max_value
