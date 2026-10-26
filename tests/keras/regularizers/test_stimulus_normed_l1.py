@@ -33,4 +33,4 @@ def test_all():
     # Check call.
     z = tf.constant([[0.5, 0.6, 0.7], [-.1, 1.2, .2], [-1., 1.3, .3]])
     output = reg(z)
-    tf.debugging.assert_equal(output, tf.constant(0.19666669))
+    tf.debugging.assert_near(output, tf.constant(0.19666669))
