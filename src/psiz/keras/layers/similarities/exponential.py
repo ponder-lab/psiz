@@ -121,6 +121,7 @@ class ExponentialSimilarity(tf.keras.layers.Layer):
                 constraint=pk_constraints.GreaterThan(min_value=0.0)
             )
 
+    @tf.function
     def call(self, inputs):
         """Call.
 

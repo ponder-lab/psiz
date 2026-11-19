@@ -35,6 +35,7 @@ from abc import ABCMeta, abstractmethod
 import warnings
 
 import numpy as np
+from tensorflow import function
 
 
 class SimilarityTrials(metaclass=ABCMeta):
@@ -219,6 +220,7 @@ class SimilarityTrials(metaclass=ABCMeta):
         return n_present.astype(dtype=np.int32)
 
     @classmethod
+    @function
     def _split_groups_columns(cls, groups):
         """Split 2D `groups` into separate columns."""
         d = {}

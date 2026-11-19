@@ -98,6 +98,7 @@ class Minkowski(tf.keras.layers.Layer):
                 name="w", dtype=K.floatx(), constraint=self.w_constraint
             )
 
+    @tf.function
     def call(self, inputs):
         """Call.
 

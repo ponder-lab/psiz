@@ -149,6 +149,7 @@ class _EmbeddingLocScale(StochasticEmbedding):
     #         self.embeddings = self._build_embeddings_distribution(dtype)
     #     self.built = True
 
+    @tf.function
     def call(self, inputs):
         """Call."""
         dtype = K.dtype(inputs)

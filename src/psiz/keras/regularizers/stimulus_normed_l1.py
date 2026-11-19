@@ -36,6 +36,7 @@ class StimulusNormedL1(tf.keras.regularizers.Regularizer):
         """
         self.l1 = l1
 
+    @tf.function
     def __call__(self, z):
         """Call.
 
