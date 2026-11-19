@@ -114,6 +114,7 @@ class RateBehavior(Behavior):
             trainable=self.rate_trainable, name="rate", dtype=K.floatx(),
         )
 
+    @tf.function
     def call(self, inputs):
         """Return predicted rating of a trial.
 

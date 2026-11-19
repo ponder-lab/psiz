@@ -198,6 +198,7 @@ class MinkowskiStochastic(tf.keras.layers.Layer):
             w_dist, reinterpreted_batch_ndims=batch_ndims
         )
 
+    @tf.function
     def call(self, inputs):
         """Call.
 

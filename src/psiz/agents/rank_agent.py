@@ -115,6 +115,7 @@ class RankAgent(Agent):  # pylint: disable=too-few-public-methods
         return obs
 
 
+@tf.function(input_signature=[tf.TensorSpec(shape=(None, None, None), dtype=tf.int32), tf.TensorSpec(shape=(None, None), dtype=tf.float32)])
 def _rank_sample(stimulus_set, probs):
     """Stochasatically select outcome.
 

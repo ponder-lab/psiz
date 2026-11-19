@@ -168,6 +168,7 @@ class EmbeddingGammaDiag(StochasticEmbedding):
             dist, reinterpreted_batch_ndims=batch_ndims
         )
 
+    @tf.function
     def call(self, inputs):
         """Call."""
         dtype = K.dtype(inputs)

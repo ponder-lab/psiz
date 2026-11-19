@@ -150,6 +150,7 @@ class SparseDispatcher():
         )
 
     # @add_name_scope()
+    @tf.function
     def dispatch_single(self, inputs):
         """Create one input Tensor for each expert.
 
@@ -194,6 +195,7 @@ class SparseDispatcher():
         return expert_list
 
     # @add_name_scope()
+    @tf.function
     def combine(self, expert_out, multiply_by_gates=True):
         """Sum together the expert output, weighted by the gates.
 

@@ -384,6 +384,7 @@ def plot_restart(fig, model_true, model_inferred, r2):
 class BehaviorLog(psiz.keras.layers.RateBehavior):
     """Sub-class for logging weight metrics."""
 
+    @tf.function
     def call(self, inputs):
         """Call."""
         outputs = super().call(inputs)
