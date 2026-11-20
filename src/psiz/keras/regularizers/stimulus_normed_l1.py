@@ -36,7 +36,7 @@ class StimulusNormedL1(tf.keras.regularizers.Regularizer):
         """
         self.l1 = l1
 
-    @tf.function(input_signature=[tf.TensorSpec(shape=(3, 3), dtype=tf.float32)])
+    @tf.function(reduce_retracing=True)
     def __call__(self, z):
         """Call.
 

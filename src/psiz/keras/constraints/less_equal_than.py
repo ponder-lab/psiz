@@ -38,7 +38,7 @@ class LessEqualThan(constraints.Constraint):
         """
         self.max_value = max_value
 
-    @tf.function(input_signature=[tf.TensorSpec(shape=None, dtype=tf.float32)])
+    @tf.function(reduce_retracing=True)
     def __call__(self, w):
         """Call."""
         w = w - self.max_value

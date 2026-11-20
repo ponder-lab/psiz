@@ -81,7 +81,7 @@ class InverseSimilarity(tf.keras.layers.Layer):
                 )
             )
 
-    @tf.function(input_signature=[tf.TensorSpec(shape=(2, 2), dtype=tf.float32)])
+    @tf.function(reduce_retracing=True)
     def call(self, inputs):
         """Call.
 
