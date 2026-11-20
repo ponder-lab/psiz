@@ -23,8 +23,8 @@ Functions:
 import tensorflow as tf
 
 
-@tf.custom_gradient
 @tf.function
+@tf.custom_gradient
 def wpnorm(x, w, p):
     """Weighted p-norm.
 
