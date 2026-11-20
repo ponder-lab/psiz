@@ -83,6 +83,7 @@ class EmbeddingTruncatedNormalDiag(_EmbeddingLocScale):
             dist, reinterpreted_batch_ndims=batch_ndims
         )
 
+    @tf.function
     def call(self, inputs):
         """Call."""
         [inputs_loc, inputs_scale] = super().call(inputs)
