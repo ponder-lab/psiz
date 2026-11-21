@@ -66,7 +66,8 @@ def main():
     n_dim = 4
     n_group = 3
     n_restart = 1
-    epochs = 3000
+    # Bound for the corpus harness: 100 epochs record the same signatures as 200 (bound trial).
+    epochs = 100
     n_trial = 6000
     batch_size = 128
 
