@@ -115,6 +115,7 @@ class RankAgent(Agent):  # pylint: disable=too-few-public-methods
         return obs
 
 
+@tf.function
 def _rank_sample(stimulus_set, probs):
     """Stochasatically select outcome.
 

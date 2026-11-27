@@ -54,6 +54,7 @@ class EmbeddingShared(tf.keras.layers.Layer):
         super().build(input_shape)
         self._embedding.build(input_shape)
 
+    @tf.function
     def call(self, inputs):
         """Call."""
         # Intercept inputs.

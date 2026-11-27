@@ -89,6 +89,7 @@ class StudentsTSimilarity(tf.keras.layers.Layer):
                 constraint=pk_constraints.GreaterEqualThan(min_value=0.000001)
             )
 
+    @tf.function
     def call(self, inputs):
         """Call.
 
