@@ -35,6 +35,7 @@ class RankBehavior(Behavior):
 
     """
 
+    @tf.function
     def call(self, inputs):
         """Return probability of a ranked selection sequence.
 
